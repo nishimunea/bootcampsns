@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Boot Camp SNS</title>
+  <link rel="stylesheet" href="css/ext/bootstrap.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="shortcut icon" href="favicon.ico">
+  <script src="js/ext/jquery.min.js"></script>
+  <script src="js/ext/bootstrap.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/index.js"></script>
+</head>
+<body>
+
+  <!-- メイン画面操作防止マスク -->
+  <div class="cloak" id="mask"></div>
+  
+  <!-- ヘッダ -->
+  <header class="main">
+    <div class="container no-padding">
+      <div class="row row-table">
+        <!-- プロフィール画像表示 -->
+        <div class="col-sm-8 no-padding">
+          <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D"
+          class="profile-image" id="img-profile"><span class="user-name" id="span-self"></span>
+        </div>
+        <div class="col-sm-4 refresh">
+          <span class="dropdown">
+            <button class="btn btn-default btn-lg dropdown-toggle menu" type="button" id="dropdown-menu1" data-toggle="dropdown">
+              <span class="glyphicon glyphicon-th"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+              <li role="presentation"><a href="#" role="menuitem" tabindex="-1" data-toggle="modal" data-target="#modal-image-feed" class="pointer">画像を投稿</a></li>
+              <li role="presentation"><a href="#" role="menuitem" tabindex="-1" data-toggle="modal" data-target="#modal-add-friend" class="pointer">友人を登録</a></li>
+              <li role="presentation" class="divider"></li>
+              <li role="presentation"><a href="#" role="menuitem" tabindex="-1" class="pointer" id="button-logout">ログアウト</a></li>
+            </ul>
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ログイン・ユーザ登録画面 -->
+  <div class="modal" id="modal-login" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="header-login">ログイン</h4>
+        </div>
+        <div class="modal-body">
+          <iframe src="/login.html" class="login" name="iframe-login"></iframe>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-default" href="register.html" target="iframe-login" role="button" id="footer-login">新規利用はこちら</a>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 友人登録画面 -->
+  <div class="modal" id="modal-add-friend" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">友人を登録</h4>
+        </div>
+        <div class="modal-body">
+          <form id="form-add-user">
+            <div class="form-group">
+              <label for="input-user-name">登録したいユーザのログイン名</label>
+              <input type="text" class="form-control" id="input-user-name" placeholder="ユーザのログイン名">
+            </div>
+            <div id="div-errors-add-friend"></div>
+        </div>
+        <div class="modal-footer">
+          <input type="submit" class="btn btn-primary" value="登録">
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- 画像フィード投稿画面 -->
+  <div class="modal" id="modal-image-feed" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span>&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">画像を投稿</h4>
+        </div>
+        <div class="modal-body">
+          <div class="drop-zone center" id="div-image-drop">ここに画像をドロップ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- テキストフィード投稿 -->
+  <header class="form">
+    <div class="container no-padding">
+      <form role="form" id="form-text-feed">
+        <div class="form-group">
+          <input type="text" class="form-control" id="input-text-feed" placeholder="しゃべる（140文字まで）" maxlength="140">
+        </div>
+      </form>
+    </div>
+  </header>
+
+  <!-- 新着フィード取得 -->
+  <div class="button-load" id="div-new-feeds">
+    <div class="container no-padding">
+      <button type="button" class="btn btn-link btn-lg btn-block" id="button-load-new">
+        <span id="span-new-feed-count"></span>件の新着投稿
+      </button>
+    </div>
+  </div>
+
+<!-- フィード表示エリア -->
+<div id="div-feeds"></div>
+
+<!-- 過去フィード取得 -->
+<div class="button-load" id="div-old-feeds">
+  <div class="container no-padding">
+    <button type="button" class="btn btn-link btn-lg btn-block" id="button-load-old">
+      もっと読む
+    </button>
+  </div>
+</div>
+
+</body>
+</html>

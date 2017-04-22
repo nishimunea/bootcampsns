@@ -1,0 +1,17 @@
+  .drop-zone {
+    border-width: 2px;
+    border-style: dashed;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-color: #cccccc;
+    color: #cccccc;
+    margin-top: 10px;
+    line-height: 170px;
+    text-align: center;
+  }
+  
+  .drop-zone-droped {
+    background-color: #eeeeee;
+    color: #bbbbbb;
+  }

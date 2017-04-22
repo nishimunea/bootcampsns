@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self';">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="css/ext/bootstrap.min.css">
+  <link rel="stylesheet" href="css/register.css">
+  <link rel="shortcut icon" href="favicon.ico">
+  <script src="js/common.js"></script>
+  <script src="js/register.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-8">
+        <form id="form-register">
+          <div class="form-group">
+            <label for="input-user">User</label>
+            <input type="text" class="form-control" id="input-user" name="user" placeholder="ログインユーザ名" maxlength="20">
+          </div>
+
+          <div class="form-group">
+            <label for="input-name">Name</label>
+            <input type="text" class="form-control" id="input-name" name="name" placeholder="表示したい名前" maxlength="20">
+          </div>
+
+          <div class="form-group">
+            <label for="input-pass">Pass</label>
+            <input type="password" class="form-control" id="input-pass" name="pass" placeholder="パスワード">
+          </div>
+
+          <input type="hidden" id="input-icon-file-name" name="icon_file_name" value="">
+
+          <div id="div-errors"></div>
+
+          <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="ユーザ登録">
+          </div>
+        </form>
+      </div>
+      <div class="col-xs-4">
+        <p><b>Icon</b></p>
+        <div class="drop-zone" id="div-drop">ここに画像をドロップ</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

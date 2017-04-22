@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>User Management Console</title>
+  <link rel="stylesheet" href="/css/ext/bootstrap.min.css">
+</head>
+<body>
+  <h1>User Management Console</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Name</th>
+        <th>Password (MD5)</th>
+        <th>Admin</th>
+        <th>Icon</th>
+        <th>Icon File Name</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.user %></td>
+      <td><%= user.name %></td>
+      <td><%= user.pass %></td>
+      <td><%= 'Admin' if user.admin %></td>
+      <td><%= image_tag icon_user_path(user), size: "128x128", alt: icon_user_path(user) unless user.icon_file_name.nil? %></td>
+      <td><%= user.icon_file_name||='' %></td>
+      <td><%= l user.created_at, format: :short %></td>
+    </tr>
+    <% end %>
+  </table>
+</body>
+</html>
