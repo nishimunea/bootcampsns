@@ -1,7 +1,6 @@
 
 class ApplicationController < ActionController::Base
   before_action :reject_cross_origin_request, except: [:icon, :manage]
-  # protect_from_forgery with: :exception
 
   @current_user = nil
 
@@ -18,12 +17,12 @@ class ApplicationController < ActionController::Base
   end
 
   def reject_cross_origin_request
-  	# X-Requested-Withリクエストヘッダが付いていなければ他のサイトからのリクエスト
+    # X-Requested-Withリクエストヘッダが付いていなければ他のサイトからのリクエスト
     render :nothing => true, :status => :bad_request and return unless request.headers['X-Requested-With']
   end
 
   def authenticate_user!
-  	@current_user = User.find_by(id: session[:id])
+    @current_user = User.find_by(id: session[:id])
     render :nothing => true, :status => :forbidden and return if @current_user.nil?
   end
 

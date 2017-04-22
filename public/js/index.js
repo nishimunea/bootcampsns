@@ -180,9 +180,10 @@ document.addEventListener('DOMContentLoaded', () => {
         cf.getElementById('content').textContent = feeds[i].comment;
       } else {
         // 画像フィードの場合
+        let caption = (feeds[i].exif.length > 1) ? `${feeds[i].exif}にて撮影` : '';
         cf.getElementById('content').innerHTML = `
           <img class='img-responsive img-thumbnail' src='/images/${feeds[i].image_file_name}'>
-          <br><small class='exif'>${feeds[i].exif} にて撮影</small>`;
+          <br><small class='exif'>${caption}</small>`;
       }      
       fragment.appendChild(cf);
     }

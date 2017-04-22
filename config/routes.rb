@@ -12,8 +12,6 @@ Rails.application.routes.draw do
 #          feeds GET    /feeds(.:format)              feeds#index
 #                POST   /feeds(.:format)              feeds#create
 
-
-
   resources :sessions, only: [:create, :clear] do
     collection do
       delete '', to: "sessions#clear", as: 'clear'

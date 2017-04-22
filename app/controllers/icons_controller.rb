@@ -6,6 +6,7 @@ class IconsController < ApplicationController
     if !!file_name.match(/png|jpeg|jpg|gif/) and mime_type.start_with? 'image/'
       image_path = "#{Rails.root}/public/icons/#{file_name}"
       FileUtils.mv params[:image].tempfile, image_path
+      FileUtils.chmod 0644, image_path
       if px = params[:resize_max_pixel]
         `convert -resize #{px}x#{px} #{image_path} #{image_path}` # ImageMagickで画像をリサイズ
       end
