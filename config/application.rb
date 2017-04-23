@@ -10,7 +10,7 @@ require "action_view/railtie"
 
 require 'digest/md5'
 require 'securerandom'
-require 'RMagick'
+require 'rmagick'
 
 Bundler.require(*Rails.groups)
 
