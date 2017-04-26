@@ -5,6 +5,7 @@ pid    'tmp/pids/unicorn.pid'
 stderr_path 'log/unicorn.std.log'
 stdout_path 'log/unicorn.err.log'
 preload_app true
+user 'www-data', 'www-data'
 
 before_fork do |server, worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
